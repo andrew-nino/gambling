@@ -1,0 +1,42 @@
+websocket:
+  websocket_host: "localhost"
+  websocket_port: 6003
+
+unibet:
+  unibet_api_base: "https://eu-offering-api.kambicdn.com/offering/v2018/"
+  api_country_code: "ubbe" # Country code for API (e.g., "ubnl" for Netherlands, "ubbe" for Belgium)
+  country_code: "be" # Country code for headers and URL (e.g., "nl" for Netherlands, "be" for Belgium)
+  lang: "nl_BE"
+  market: "BE"
+  client_id: "2"
+  channel_id: "1"
+  proxies:
+    - "http://14a7535ace66b:1e2ebfe6a8@141.98.100.110:30065"
+    - "http://14a7535ace66b:1e2ebfe6a8@141.98.100.110:30066"
+    - "http://14a7535ace66b:1e2ebfe6a8@141.98.100.110:30067"
+    - "http://14a7535ace66b:1e2ebfe6a8@141.98.100.110:30068"
+    - "http://14a7535ace66b:1e2ebfe6a8@141.98.100.110:30069"
+    - "http://14a7535ace66b:1e2ebfe6a8@141.98.100.110:30070"
+    - "http://14a7535ace66b:1e2ebfe6a8@141.98.100.110:30071"
+    - "http://14a7535ace66b:1e2ebfe6a8@141.98.100.110:30072"
+    - "http://14a7535ace66b:1e2ebfe6a8@141.98.100.110:30073"
+    - "http://14a7535ace66b:1e2ebfe6a8@141.98.100.110:30074"
+  live_update_interval: 2s # Time duration for live updates
+  prematch_update_interval: 20s # Time duration for prematch updates
+  matches_per_batch: 100
+  sports_to_parse:
+    - sport: "Football"
+      mode: "Live"
+    - sport: "Football"
+      mode: "PreMatch"
+    - sport: "Tennis"
+      mode: "Live"
+    - sport: "Tennis"
+      mode: "PreMatch"
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  raw_url_fetch_match: "%s/betoffer/event/%d.json"
+  raw_url_get_matches_is_live: "%s/listView/%s/all/all/all/in-play.json"
+  raw_url_get_matches: "%s/listView/%s.json"
+timeout_on_external_service: "600s"
+path_to_data: "./odds_data"
+log_level: "debug"

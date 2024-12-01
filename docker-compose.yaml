@@ -1,0 +1,37 @@
+services:  
+  parser:
+    networks:
+      - webnet
+    container_name: parser
+    volumes:
+      - parser-data:/odds_data
+    build: ./app
+    restart: unless-stopped
+
+  client:
+    networks:
+      - webnet
+    container_name: client
+    build: ./client
+    depends_on:
+      - parser
+    restart: unless-stopped
+
+  view:
+    networks:
+      - webnet
+    container_name: view
+    volumes:
+      - parser-data:/odds_data
+    build: ./view
+    depends_on:
+      - parser
+    ports:
+      - "8002:8002"
+    restart: unless-stopped
+
+networks:
+  webnet:
+    driver: bridge
+volumes:
+  parser-data:
